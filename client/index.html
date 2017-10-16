@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Your App</title>
+</head>
+<body>
+	<script>
+		let token = window.location.search
+		if ( token ) {
+			document.write(token);
+		} else {
+			document.write('<a href="/login/facebook">login with facebook</a>');
+		}
+	</script>
+</body>
+</html>
+
+<!-- replace with your own frontend code! -->
