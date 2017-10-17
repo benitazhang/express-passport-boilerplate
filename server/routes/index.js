@@ -13,7 +13,7 @@ function init(server) {
     });
 
     // REGISTER ROUTES - include all server routes below
-    server.use('/login/facebook', loginRoute);
+    server.use('/login', loginRoute);
 }
 
 module.exports = {
