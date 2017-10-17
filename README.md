@@ -15,3 +15,6 @@ export FB_SECRET = <facebook app secret>;
 5) `source .env`
 6) `npm install`
 7) `npm start`
+
+## Note
+This project uses token based authentication instead of Passport sessions. When a user authenticates through Facebook, their Facebook ID is used to look up the user ID in the database. The user ID is then encoded to a JSON web token and sent to the client
