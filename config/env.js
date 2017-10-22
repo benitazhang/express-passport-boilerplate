@@ -1,8 +1,8 @@
 
-const env = process.env.NODE_ENV || 'local';
+const env = process.env.NODE_ENV || 'development';
 
 const options = {
-    local: {
+    development: {
         "name": "development",
         "port": 3000,
         "host": "localhost",
