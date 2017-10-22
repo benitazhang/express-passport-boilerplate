@@ -1,6 +1,4 @@
 // create, configure, start server
-'use strict';
-
 const
     express = require('express'),
     bodyParser = require('body-parser'),
@@ -35,7 +33,7 @@ function start () {
 
 
 module.exports = {
-    start: start
+    start
 };
 
 

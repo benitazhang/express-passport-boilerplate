@@ -1,5 +1,6 @@
 const db = require('../../config/db');
 
+
 // lookup account info with fb id
 async function verifyAccount(facebookId){
     try {
@@ -21,6 +22,6 @@ async function createAccount(userInfo){
 }
 
 module.exports = {
-    verifyAccount: verifyAccount,
-    createAccount: createAccount
+    verifyAccount,
+    createAccount
 }

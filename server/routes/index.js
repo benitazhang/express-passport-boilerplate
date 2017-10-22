@@ -1,9 +1,7 @@
-'use strict';
-
 const
     path = require('path'),
-    passport = require('../../config/passport'),
-    loginRoute = require('./login');
+    loginRoute = require('./loginRoute');
+
 
 function init(server) {
 
@@ -17,5 +15,5 @@ function init(server) {
 }
 
 module.exports = {
-    init: init
+    init
 };

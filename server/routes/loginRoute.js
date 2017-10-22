@@ -1,15 +1,13 @@
-'use strict';
-
 const
     express = require('express'),
-    loginCtrl = require('../controllers/login'),
+    loginCtrl = require('../controllers/loginCtrl'),
     passport = require('../../config/passport');
-    
-let
-    router = express.Router(),
+   
+
+const router = express.Router();
     // authenticate through facebook
     // disable server session since we are using JSON web tokens 
-    fbAuth = passport.authenticate('facebook', {session:false});
+const fbAuth = passport.authenticate('facebook', {session:false});
 
 
 // kicks us to facebook to authenticate

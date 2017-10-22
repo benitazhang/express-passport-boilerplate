@@ -1,7 +1,5 @@
-'use strict';
-
 const
-    userModel = require('../models/user'),
+    userModel = require('../models/userModel'),
     tokenize = require('../helpers/token');
 
 
@@ -11,23 +9,19 @@ async function authorizeUser (user) {
     try {
 
         let userId = await userModel.verifyAccount(user.fbId);
-        
         if (!userId) {
             userId = await userModel.createAccount(user);
         }
 
         let token = tokenize.createToken(userId);
-
         return token;
 
     } catch (err) {
-
         console.log("login error", err);
-
     }
 }
     
 module.exports = {
-    authorizeUser: authorizeUser
+    authorizeUser
 }
 

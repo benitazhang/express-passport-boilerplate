@@ -1,14 +1,12 @@
 // configures passport to use facebook oauth
-
-'use strict';
-
 const
     passport = require('passport'),
     FacebookStrategy = require('passport-facebook'),
     moment = require('moment'),
     env = require('./env'),
-    loginCtrl = require('../server/controllers/login');
+    loginCtrl = require('../server/controllers/loginCtrl');
     
+
 // config for facebook auth
 passport.use(
     new FacebookStrategy({

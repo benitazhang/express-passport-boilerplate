@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 
+
 // encrypts user id and returns token string 
 function createToken(userId) {
     return jwt.sign(
@@ -15,6 +16,6 @@ function verifyToken(token) {
 }
 
 module.exports = {
-    createToken: createToken,
-    verifyToken: verifyToken
+    createToken,
+    verifyToken
 }
