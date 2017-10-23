@@ -14,6 +14,7 @@ function init(server) {
     server.use('/login', loginRoute);
 }
 
+
 module.exports = {
     init
 };

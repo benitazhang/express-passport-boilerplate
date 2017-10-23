@@ -5,7 +5,18 @@ const
     moment = require('moment'),
     env = require('./env'),
     loginCtrl = require('../server/controllers/loginCtrl');
+
     
+function formatFacebookProfile (profile) {
+    return {
+        fbId: profile.id,
+        firstName: profile.first_name,
+        lastName: profile.last_name,
+        email: profile.email || null,
+        picture: profile.picture.data.url || null,
+        createdAt: moment.utc().toISOString()
+    }
+}
 
 // config for facebook auth
 passport.use(
@@ -18,21 +29,18 @@ passport.use(
     },
     // callback executed after user authenticates on FB page
     async (accessToken, refreshToken, profile, callback) => {
-        let user = {};
-        profile = profile._json;
-        
-        user.fbId = profile.id;
-        user.firstName = profile.first_name;
-        user.lastName = profile.last_name;
-        user.email = profile.email || null;
-        user.picture = profile.picture.data.url || null;
-        user.createdAt = moment.utc().toISOString();
+        try {
+            const user = formatFacebookProfile(profile._json);
+            let token = await loginCtrl.authorizeUser(user);
 
-        let token = await loginCtrl.authorizeUser(user)
+            callback(null, token);
 
-        callback(null, token);
+        } catch (e){
+            console.log("error: ", e)
+        }
     })
 );
+
 
 module.exports = passport;
 

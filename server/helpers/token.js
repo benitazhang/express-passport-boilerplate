@@ -15,6 +15,7 @@ function verifyToken(token) {
     return jwt.verify(token, 'MY_SECRET_KEY').userId;
 }
 
+
 module.exports = {
     createToken,
     verifyToken
